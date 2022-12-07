@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "lint": "eslint ./src/**/*.{ts,tsx}",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "test": "vitest"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -29,6 +30,7 @@
     "eslint-plugin-react": "^7.31.11",
     "prettier": "^2.8.0",
     "typescript": "^4.6.4",
-    "vite": "^3.2.3"
+    "vite": "^3.2.3",
+    "vitest": "^0.25.5"
   }
 }
