@@ -1,33 +1,34 @@
 import PasswordStrength from '../PasswordStrength/PasswordStrength';
 import iconArrowRight from '../../assets/icon-arrow-right.svg';
+import { PasswordFormInputs } from '../../types/form-types';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import Slider from '../HookForm/Slider';
+import CheckBox from '../HookForm/Checkbox';
 
 const PasswordForm = () => {
+  const { register, handleSubmit } = useForm<PasswordFormInputs>({
+    defaultValues: {
+      passwordLength: '8',
+      useUppercase: true,
+      useLowercase: true,
+      useNumbers: false,
+      useSymbols: false,
+    },
+  });
+
+  const generatePassword: SubmitHandler<PasswordFormInputs> = (data) => {
+    console.log(data);
+  };
   return (
     <section>
-      <form>
-        <div>
-          <label htmlFor="passwordLength">
-            Character Length <span>current value here</span>
-          </label>
-          <input
-            type="range"
-            id="passwordLength"
-            name="passwordLength"
-            min="8"
-            max="20"
-          />
-        </div>
+      <form onSubmit={handleSubmit(generatePassword)}>
+        <Slider register={register} label="passwordLength" />
 
-        {/* make this its own Input Component */}
         <div>
-          <div>
-            <input
-              type="checkbox"
-              id="includeUppercase"
-              name="includeUppercase"
-            />
-          </div>
-          <label htmlFor="includeUppercase" />
+          <CheckBox register={register} label="useUppercase" />
+          <CheckBox register={register} label="useLowercase" />
+          <CheckBox register={register} label="useNumbers" />
+          <CheckBox register={register} label="useSymbols" />
         </div>
 
         <PasswordStrength />
