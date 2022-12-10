@@ -5,10 +5,14 @@ interface PasswordDisplayProps {
 }
 
 const PasswordDisplay = ({ password }: PasswordDisplayProps) => {
+  const copyPassword = () => navigator.clipboard.writeText(password);
   return (
     <section>
       <h2>{password}</h2>
-      <button aria-label="Copy generated password to clipboard">
+      <button
+        onClick={copyPassword}
+        aria-label="Copy generated password to clipboard"
+      >
         <img src={copyIcon} alt="copy to clipboard icon" />
       </button>
     </section>
