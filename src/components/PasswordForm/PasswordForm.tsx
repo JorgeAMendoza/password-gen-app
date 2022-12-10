@@ -5,8 +5,13 @@ import { PasswordFormInputs } from '../../types/form-types';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import Slider from '../HookForm/Slider';
 import CheckBox from '../HookForm/Checkbox';
+import { useEffect } from 'react';
 
-const PasswordForm = () => {
+interface PasswordFormProps {
+  setPassword: React.Dispatch<string>;
+}
+
+const PasswordForm = ({ setPassword }: PasswordFormProps) => {
   const { register, handleSubmit } = useForm<PasswordFormInputs>({
     defaultValues: {
       passwordLength: '8',
@@ -17,6 +22,15 @@ const PasswordForm = () => {
     },
   });
 
+  useEffect(() => {
+    const password = generator.generate({
+      length: 8,
+      uppercase: true,
+      lowercase: true,
+    });
+    setPassword(password);
+  }, []);
+
   const generatePassword: SubmitHandler<PasswordFormInputs> = (data) => {
     const password = generator.generate({
       length: parseInt(data.passwordLength),
@@ -26,7 +40,7 @@ const PasswordForm = () => {
       symbols: data.useSymbols,
     });
 
-    console.log(password);
+    setPassword(password);
   };
   return (
     <section>
