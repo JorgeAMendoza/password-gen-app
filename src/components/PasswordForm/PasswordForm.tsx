@@ -5,13 +5,15 @@ import { PasswordFormInputs } from '../../types/form-types';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import Slider from '../HookForm/Slider';
 import CheckBox from '../HookForm/Checkbox';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import passwordScore from '../../utils/password-score';
 
 interface PasswordFormProps {
   setPassword: React.Dispatch<string>;
 }
 
 const PasswordForm = ({ setPassword }: PasswordFormProps) => {
+  const [passwordStrength, setPasswordStrength] = useState(0);
   const { register, handleSubmit, watch } = useForm<PasswordFormInputs>({
     defaultValues: {
       passwordLength: '8',
@@ -29,6 +31,8 @@ const PasswordForm = ({ setPassword }: PasswordFormProps) => {
       lowercase: true,
     });
     setPassword(password);
+    const score = passwordScore(8, true, true, false, false);
+    setPasswordStrength(score);
   }, []);
 
   const generatePassword: SubmitHandler<PasswordFormInputs> = (data) => {
@@ -39,8 +43,16 @@ const PasswordForm = ({ setPassword }: PasswordFormProps) => {
       numbers: data.useNumbers,
       symbols: data.useSymbols,
     });
+    const score = passwordScore(
+      parseInt(data.passwordLength),
+      data.useUppercase,
+      data.useLowercase,
+      data.useNumbers,
+      data.useSymbols
+    );
 
     setPassword(password);
+    setPasswordStrength(score);
   };
   return (
     <section>
@@ -58,7 +70,7 @@ const PasswordForm = ({ setPassword }: PasswordFormProps) => {
           <CheckBox register={register} label="useSymbols" />
         </div>
 
-        <PasswordStrength />
+        <PasswordStrength passwordScoreNum={passwordStrength} />
 
         <button type="submit">
           Generate{' '}

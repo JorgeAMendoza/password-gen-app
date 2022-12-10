@@ -1,10 +1,19 @@
-const PasswordStrength = () => {
-  // most likely some hook to be run when length, uppercase, lowercase, numbers, and symbols changes. basically any password option
-  // some function to generate the strength based on a 1-4 scale.
+interface PasswordStrengthProps {
+  passwordScoreNum: number;
+}
+
+const PasswordStrength = ({ passwordScoreNum }: PasswordStrengthProps) => {
   return (
     <div>
       <h3>STRENGTH</h3>
-      <div>{/* logic here for the bar here, need to create this */}</div>
+      <div>
+        <p>
+          {passwordScoreNum === 1 ? 'TOO WEAK!' : null}
+          {passwordScoreNum === 2 ? 'WEAK!' : null}
+          {passwordScoreNum === 3 ? 'MEDIUM' : null}
+          {passwordScoreNum === 4 ? 'STRONG' : null}
+        </p>
+      </div>
     </div>
   );
 };
