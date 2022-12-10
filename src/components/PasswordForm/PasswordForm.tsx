@@ -12,7 +12,7 @@ interface PasswordFormProps {
 }
 
 const PasswordForm = ({ setPassword }: PasswordFormProps) => {
-  const { register, handleSubmit } = useForm<PasswordFormInputs>({
+  const { register, handleSubmit, watch } = useForm<PasswordFormInputs>({
     defaultValues: {
       passwordLength: '8',
       useUppercase: true,
@@ -45,7 +45,11 @@ const PasswordForm = ({ setPassword }: PasswordFormProps) => {
   return (
     <section>
       <form onSubmit={handleSubmit(generatePassword)}>
-        <Slider register={register} label="passwordLength" />
+        <Slider
+          register={register}
+          label="passwordLength"
+          sliderCount={watch('passwordLength')}
+        />
 
         <div>
           <CheckBox register={register} label="useUppercase" />

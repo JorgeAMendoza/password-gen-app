@@ -4,14 +4,15 @@ import { PasswordFormInputs } from '../../types/form-types';
 interface SliderProps {
   label: Path<PasswordFormInputs>;
   register: UseFormRegister<PasswordFormInputs>;
+  sliderCount: string;
 }
 
-const Slider = ({ label, register }: SliderProps) => {
+const Slider = ({ label, register, sliderCount }: SliderProps) => {
   return (
     <div>
       <div>
         <h2>Character Length</h2>
-        <p>slider counter</p>
+        <p>{sliderCount}</p>
       </div>
 
       <label>
