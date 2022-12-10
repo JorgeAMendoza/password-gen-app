@@ -1,3 +1,4 @@
+import * as generator from 'generate-password-browser';
 import PasswordStrength from '../PasswordStrength/PasswordStrength';
 import iconArrowRight from '../../assets/icon-arrow-right.svg';
 import { PasswordFormInputs } from '../../types/form-types';
@@ -17,7 +18,15 @@ const PasswordForm = () => {
   });
 
   const generatePassword: SubmitHandler<PasswordFormInputs> = (data) => {
-    console.log(data);
+    const password = generator.generate({
+      length: parseInt(data.passwordLength),
+      uppercase: data.useUppercase,
+      lowercase: data.useLowercase,
+      numbers: data.useNumbers,
+      symbols: data.useSymbols,
+    });
+
+    console.log(password);
   };
   return (
     <section>
