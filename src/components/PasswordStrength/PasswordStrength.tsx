@@ -7,7 +7,7 @@ const PasswordStrength = ({ passwordScoreNum }: PasswordStrengthProps) => {
     <div>
       <h3>STRENGTH</h3>
       <div>
-        <p>
+        <p data-cy="passwordStrengthText">
           {passwordScoreNum === 1 ? 'TOO WEAK!' : null}
           {passwordScoreNum === 2 ? 'WEAK!' : null}
           {passwordScoreNum === 3 ? 'MEDIUM' : null}

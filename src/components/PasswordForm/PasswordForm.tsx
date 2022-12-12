@@ -61,18 +61,35 @@ const PasswordForm = ({ setPassword }: PasswordFormProps) => {
           register={register}
           label="passwordLength"
           sliderCount={watch('passwordLength')}
+          data-cy="passwordLengthSlider"
         />
 
         <div>
-          <CheckBox register={register} label="useUppercase" />
-          <CheckBox register={register} label="useLowercase" />
-          <CheckBox register={register} label="useNumbers" />
-          <CheckBox register={register} label="useSymbols" />
+          <CheckBox
+            register={register}
+            label="useUppercase"
+            testID="passwordUpperCheckbox"
+          />
+          <CheckBox
+            register={register}
+            label="useLowercase"
+            testID="passwordLowerCheckbox"
+          />
+          <CheckBox
+            register={register}
+            label="useNumbers"
+            testID="passwordNumbersCheckbox"
+          />
+          <CheckBox
+            register={register}
+            label="useSymbols"
+            testID="passwordSymbolsCheckbox"
+          />
         </div>
 
         <PasswordStrength passwordScoreNum={passwordStrength} />
 
-        <button type="submit">
+        <button type="submit" data-cy="generatePasswordButton">
           Generate{' '}
           <span>
             <img src={iconArrowRight} />

@@ -12,7 +12,7 @@ const Slider = ({ label, register, sliderCount }: SliderProps) => {
     <div>
       <div>
         <h2>Character Length</h2>
-        <p>{sliderCount}</p>
+        <p data-cy="passwordLengthText">{sliderCount}</p>
       </div>
 
       <label>
@@ -22,6 +22,7 @@ const Slider = ({ label, register, sliderCount }: SliderProps) => {
           min={8}
           max={20}
           {...register(label, { required: true, min: 0, max: 20 })}
+          data-cy="passwordLengthSlider"
         />
       </label>
     </div>
