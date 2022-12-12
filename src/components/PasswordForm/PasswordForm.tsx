@@ -92,7 +92,7 @@ const PasswordForm = ({ setPassword }: PasswordFormProps) => {
         <button type="submit" data-cy="generatePasswordButton">
           Generate{' '}
           <span>
-            <img src={iconArrowRight} />
+            <img src={iconArrowRight} alt="" />
           </span>
         </button>
       </form>
