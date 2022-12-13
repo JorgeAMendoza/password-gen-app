@@ -1,6 +1,7 @@
 import PasswordForm from './components/PasswordForm/PasswordForm';
 import PasswordDisplay from './components/PasswordDisplay/PasswordDisplay';
 import { useState } from 'react';
+import './App.css';
 
 function App() {
   const [password, setPassword] = useState('');
