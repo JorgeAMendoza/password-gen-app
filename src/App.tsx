@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   const [password, setPassword] = useState('');
   return (
-    <main>
+    <main className="app">
       <PasswordDisplay password={password} />
       <PasswordForm setPassword={setPassword} />
     </main>
