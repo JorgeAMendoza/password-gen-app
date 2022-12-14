@@ -12,6 +12,9 @@
   --background-color: var(--black);
   --light-text-color: var(--white);
   --password-display-background: var(--dark-gray);
+  --password-form-background: var(--dark-gray);
+
+  --gen-button-background: var(--neon-grean);
 }
 
 html {

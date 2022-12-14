@@ -13,6 +13,7 @@ const PasswordDisplay = ({ password }: PasswordDisplayProps) => {
         {password}
       </h2>
       <button
+        className=""
         onClick={copyPassword}
         aria-label="Copy generated password to clipboard"
         data-cy="copyPasswordButton"

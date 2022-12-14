@@ -7,6 +7,7 @@ import Slider from '../HookForm/Slider';
 import CheckBox from '../HookForm/Checkbox';
 import { useEffect, useState } from 'react';
 import passwordScore from '../../utils/password-score';
+import styles from './PasswordForm.module.css';
 
 interface PasswordFormProps {
   setPassword: React.Dispatch<string>;
@@ -55,7 +56,7 @@ const PasswordForm = ({ setPassword }: PasswordFormProps) => {
     setPasswordStrength(score);
   };
   return (
-    <section>
+    <section className="password-form">
       <form onSubmit={handleSubmit(generatePassword)}>
         <Slider
           register={register}
@@ -89,7 +90,11 @@ const PasswordForm = ({ setPassword }: PasswordFormProps) => {
 
         <PasswordStrength passwordScoreNum={passwordStrength} />
 
-        <button type="submit" data-cy="generatePasswordButton">
+        <button
+          type="submit"
+          data-cy="generatePasswordButton"
+          className={styles.button}
+        >
           Generate{' '}
           <span>
             <img src={iconArrowRight} alt="" />
