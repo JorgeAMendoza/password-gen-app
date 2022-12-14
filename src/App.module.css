@@ -35,14 +35,6 @@ body {
   color: var(--light-text-color);
   -webkit-font-smoothing: antialiased;
 }
-#root,
-#next {
-  isolation: isolate;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 img,
 svg,
 picture,
@@ -75,6 +67,13 @@ h6 {
 }
 
 .app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.formContainer {
   width: min(90%, 54rem);
-  border: 1px solid black;
 }
