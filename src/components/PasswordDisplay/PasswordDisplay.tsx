@@ -1,5 +1,5 @@
 import copyIcon from '../../assets/icon-copy.svg';
-import './PasswordDisplay.css';
+import style from './PasswordDisplay.module.css';
 
 interface PasswordDisplayProps {
   password: string;
@@ -8,8 +8,8 @@ interface PasswordDisplayProps {
 const PasswordDisplay = ({ password }: PasswordDisplayProps) => {
   const copyPassword = () => navigator.clipboard.writeText(password);
   return (
-    <section className="password-display">
-      <h2 data-cy="password" className="password-display__text">
+    <section className={style.passwordDisplay}>
+      <h2 data-cy="password" className={style.passwordText}>
         {password}
       </h2>
       <button
