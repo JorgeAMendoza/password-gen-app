@@ -1,5 +1,5 @@
 import { Path, UseFormRegister } from 'react-hook-form';
-import { PasswordFormInputs } from '../../types/form-types';
+import { PasswordFormInputs } from '../../../types/form-types';
 
 interface CheckBoxProps {
   label: Path<PasswordFormInputs>;

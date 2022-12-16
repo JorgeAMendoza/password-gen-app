@@ -4,7 +4,7 @@
   --black: #08070b;
   --grey: #817d92;
   --white: #e6e5ea;
-  --neon-grean: #a4ffaf;
+  --neon-green: #a4ffaf;
   --red: #f64a4a;
   --orange: #fb7c58;
   --yellow: #f8cd65;
@@ -14,7 +14,11 @@
   --password-display-background: var(--dark-gray);
   --password-form-background: var(--dark-gray);
 
-  --gen-button-background: var(--neon-grean);
+  --gen-button-background: var(--neon-green);
+  --slider-bar: var(--very-dark-gray);
+  --slider-active-bar: var(--neon-green);
+  --slider-handle: var(--white);
+  --slider-fill-width: 0%;
 }
 
 html {
