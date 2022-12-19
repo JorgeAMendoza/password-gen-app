@@ -1,6 +1,5 @@
 import * as generator from 'generate-password-browser';
 import PasswordStrength from '../PasswordStrength/PasswordStrength';
-import iconArrowRight from '../../assets/icon-arrow-right.svg';
 import { PasswordFormInputs } from '../../types/form-types';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import Slider from '../HookForm/Slider/Slider';
@@ -8,6 +7,7 @@ import CheckBox from '../HookForm/Checkbox/Checkbox';
 import { useEffect, useState } from 'react';
 import passwordScore from '../../utils/password-score';
 import styles from './PasswordForm.module.css';
+import Arrow from '../Icons/Arrow';
 
 interface PasswordFormProps {
   setPassword: React.Dispatch<string>;
@@ -97,7 +97,7 @@ const PasswordForm = ({ setPassword }: PasswordFormProps) => {
         >
           Generate{' '}
           <span>
-            <img src={iconArrowRight} alt="" />
+            <Arrow />
           </span>
         </button>
       </form>
