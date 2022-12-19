@@ -57,7 +57,7 @@ const PasswordForm = ({ setPassword }: PasswordFormProps) => {
   };
   return (
     <section className={styles.passwordForm}>
-      <form onSubmit={handleSubmit(generatePassword)}>
+      <form onSubmit={handleSubmit(generatePassword)} className={styles.form}>
         <Slider
           register={register}
           label="passwordLength"

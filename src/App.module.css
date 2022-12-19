@@ -18,7 +18,6 @@
   --slider-bar: var(--very-dark-gray);
   --slider-active-bar: var(--neon-green);
   --slider-handle: var(--white);
-  --slider-fill-width: 0%;
 }
 
 html {
