@@ -65,26 +65,30 @@ const PasswordForm = ({ setPassword }: PasswordFormProps) => {
           data-cy="passwordLengthSlider"
         />
 
-        <div>
+        <div className={styles.checkboxContainer}>
           <CheckBox
             register={register}
             label="useUppercase"
             testID="passwordUpperCheckbox"
+            labelText="include uppercase letters"
           />
           <CheckBox
             register={register}
             label="useLowercase"
             testID="passwordLowerCheckbox"
+            labelText="include lowercase letters"
           />
           <CheckBox
             register={register}
             label="useNumbers"
             testID="passwordNumbersCheckbox"
+            labelText="include numbers"
           />
           <CheckBox
             register={register}
             label="useSymbols"
             testID="passwordSymbolsCheckbox"
+            labelText="include symbols"
           />
         </div>
 

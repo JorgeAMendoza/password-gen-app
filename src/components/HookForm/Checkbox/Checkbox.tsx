@@ -1,17 +1,26 @@
 import { Path, UseFormRegister } from 'react-hook-form';
 import { PasswordFormInputs } from '../../../types/form-types';
+import styles from './Checkbox.module.css';
 
 interface CheckBoxProps {
   label: Path<PasswordFormInputs>;
   register: UseFormRegister<PasswordFormInputs>;
   testID: string;
+  labelText: string;
 }
 
-export const CheckBox = ({ label, register, testID }: CheckBoxProps) => {
+export const CheckBox = ({
+  label,
+  register,
+  testID,
+  labelText,
+}: CheckBoxProps) => {
   return (
-    <label>
+    <label className={styles.checkboxContainer}>
+      {' '}
+      {labelText}
       <input type="checkbox" {...register(label)} data-cy={testID} />
-      <span>{label}</span>
+      <span className={styles.checkmark}></span>
     </label>
   );
 };
