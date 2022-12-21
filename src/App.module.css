@@ -18,6 +18,15 @@
   --slider-bar: var(--very-dark-gray);
   --slider-active-bar: var(--neon-green);
   --slider-handle: var(--white);
+
+  --password-str-bg: var(--very-dark-gray);
+  --password-str-title: var(--grey);
+  --password-str-text: var(--white);
+
+  --password-very-weak-bar: var(--red);
+  --password-weak-bar: var(--orange);
+  --password-medium-bar: var(--yellow);
+  --password-strong-bar: var(--neon-green);
 }
 
 html {
