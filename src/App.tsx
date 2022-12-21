@@ -7,6 +7,7 @@ function App() {
   const [password, setPassword] = useState('');
   return (
     <main className={styles.app}>
+      <h1 className={styles.appTitle}>Password Generator</h1>
       <div className={styles.formContainer}>
         <PasswordDisplay password={password} />
         <PasswordForm setPassword={setPassword} />
