@@ -1,12 +1,13 @@
 import * as generator from 'generate-password-browser';
 import PasswordStrength from '../PasswordStrength/PasswordStrength';
-import iconArrowRight from '../../assets/icon-arrow-right.svg';
 import { PasswordFormInputs } from '../../types/form-types';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import Slider from '../HookForm/Slider';
-import CheckBox from '../HookForm/Checkbox';
+import Slider from '../HookForm/Slider/Slider';
+import CheckBox from '../HookForm/Checkbox/Checkbox';
 import { useEffect, useState } from 'react';
 import passwordScore from '../../utils/password-score';
+import styles from './PasswordForm.module.css';
+import Arrow from '../Icons/Arrow';
 
 interface PasswordFormProps {
   setPassword: React.Dispatch<string>;
@@ -55,8 +56,8 @@ const PasswordForm = ({ setPassword }: PasswordFormProps) => {
     setPasswordStrength(score);
   };
   return (
-    <section>
-      <form onSubmit={handleSubmit(generatePassword)}>
+    <section className={styles.passwordForm}>
+      <form onSubmit={handleSubmit(generatePassword)} className={styles.form}>
         <Slider
           register={register}
           label="passwordLength"
@@ -64,35 +65,43 @@ const PasswordForm = ({ setPassword }: PasswordFormProps) => {
           data-cy="passwordLengthSlider"
         />
 
-        <div>
+        <div className={styles.checkboxContainer}>
           <CheckBox
             register={register}
             label="useUppercase"
             testID="passwordUpperCheckbox"
+            labelText="include uppercase letters"
           />
           <CheckBox
             register={register}
             label="useLowercase"
             testID="passwordLowerCheckbox"
+            labelText="include lowercase letters"
           />
           <CheckBox
             register={register}
             label="useNumbers"
             testID="passwordNumbersCheckbox"
+            labelText="include numbers"
           />
           <CheckBox
             register={register}
             label="useSymbols"
             testID="passwordSymbolsCheckbox"
+            labelText="include symbols"
           />
         </div>
 
         <PasswordStrength passwordScoreNum={passwordStrength} />
 
-        <button type="submit" data-cy="generatePasswordButton">
+        <button
+          type="submit"
+          data-cy="generatePasswordButton"
+          className={styles.button}
+        >
           Generate{' '}
           <span>
-            <img src={iconArrowRight} />
+            <Arrow />
           </span>
         </button>
       </form>
