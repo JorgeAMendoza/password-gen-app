@@ -9,6 +9,7 @@
   --orange: #fb7c58;
   --yellow: #f8cd65;
 
+  --app-title: var(--grey);
   --background-color: var(--black);
   --light-text-color: var(--white);
   --password-display-background: var(--dark-gray);
@@ -92,4 +93,10 @@ h6 {
 
 .formContainer {
   width: min(90%, 54rem);
+}
+
+.appTitle {
+  color: var(--app-title);
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  margin-bottom: 2rem;
 }
