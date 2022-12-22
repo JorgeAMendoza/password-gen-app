@@ -10,7 +10,6 @@
   --yellow: #f8cd65;
 
   --app-title: var(--grey);
-  --background-color: var(--black);
   --light-text-color: var(--white);
   --password-display-background: var(--dark-gray);
   --password-form-background: var(--dark-gray);
@@ -47,7 +46,11 @@ body {
   font-size: 1.6rem;
   height: 100%;
   position: relative;
-  background-color: var(--background-color);
+  background-image: linear-gradient(
+    to bottom,
+    var(--very-dark-gray),
+    var(--black) 80%
+  );
   color: var(--light-text-color);
   -webkit-font-smoothing: antialiased;
 }
@@ -92,11 +95,12 @@ h6 {
 }
 
 .formContainer {
-  width: min(90%, 54rem);
+  width: min(91%, 54rem);
 }
 
 .appTitle {
   color: var(--app-title);
-  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+
   margin-bottom: 2rem;
 }

@@ -18,10 +18,10 @@
 
 .checkmark {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 2rem;
-  width: 2rem;
+  top: 2px;
+  left: 2px;
+  height: 1.8rem;
+  width: 1.8rem;
   background-color: transparent;
   outline: 2px solid var(--white);
 }
@@ -46,8 +46,8 @@
 }
 
 .checkboxContainer .checkmark::after {
-  left: 7px;
-  top: 2px;
+  left: 5px;
+  top: 1px;
   width: 8px;
   height: 15px;
   border: solid black;
