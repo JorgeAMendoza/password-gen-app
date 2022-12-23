@@ -1,4 +1,4 @@
-import copyIcon from '../../assets/icon-copy.svg';
+import Copy from '../Icons/Copy';
 import styles from './PasswordDisplay.module.css';
 
 interface PasswordDisplayProps {
@@ -13,16 +13,14 @@ const PasswordDisplay = ({ password }: PasswordDisplayProps) => {
         {password}
       </h2>
       <button
-        className=""
+        className={styles.button}
         onClick={copyPassword}
         aria-label="Copy generated password to clipboard"
         data-cy="copyPasswordButton"
       >
-        <img
-          src={copyIcon}
-          alt="copy to clipboard icon"
-          className={styles.copyImage}
-        />
+        <span>
+          <Copy />
+        </span>
       </button>
     </section>
   );
