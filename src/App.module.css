@@ -100,7 +100,26 @@ h6 {
 
 .appTitle {
   color: var(--app-title);
-  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
 
   margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .appTitle {
+    margin-bottom: 3rem;
+  }
+
+  .app {
+    justify-content: flex-start;
+    padding-top: 13rem;
+  }
+
+  body {
+    background-image: linear-gradient(
+      to bottom,
+      var(--very-dark-gray),
+      var(--black) 90%
+    );
+  }
 }
