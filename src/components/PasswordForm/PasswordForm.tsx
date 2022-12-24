@@ -98,6 +98,14 @@ const PasswordForm = ({ setPassword }: PasswordFormProps) => {
           type="submit"
           data-cy="generatePasswordButton"
           className={styles.button}
+          disabled={
+            !(
+              watch('useLowercase') ||
+              watch('useUppercase') ||
+              watch('useNumbers') ||
+              watch('useSymbols')
+            )
+          }
         >
           Generate{' '}
           <span>

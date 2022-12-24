@@ -47,8 +47,6 @@ const Slider = ({ label, register, sliderCount }: SliderProps) => {
                 );
               else if (rangeElementValue < 14) {
                 const activeWidth = (rangeElementValue - 8) * 8.33;
-                const nonActiveWidth = 99.75 - activeWidth;
-                console.log(nonActiveWidth);
                 rangeElement.style.setProperty(
                   '--slider-active-width',
                   `${activeWidth.toFixed(2)}%`
