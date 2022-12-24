@@ -19,14 +19,14 @@ describe('generate password form', () => {
     cy.get('[data-cy="passwordMeterBarFour"]').as('passwordMeterBarFour');
   });
 
-  it('inital password loaded, with a score of weak, form defaults active', () => {
-    cy.get('@password').should('have.length', 8);
+  it.only('inital password loaded, with a score of weak, form defaults active', () => {
+    cy.get('@password').invoke('text').should('have.length', 8);
     cy.get('@passwordStrengthText').should('have.text', 'TOO WEAK!');
 
     cy.get('@passwordLengthText').should('have.text', '8');
     cy.get('@passwordUpperCheckbox').should('be.checked');
     cy.get('@passwordLowerCheckbox').should('be.checked');
-    cy.get('@passwordNumberCheckbox').should('not.be.checked');
+    cy.get('@passwordNumbersCheckbox').should('not.be.checked');
     cy.get('@passwordSymbolsCheckbox').should('not.be.checked');
   });
 
