@@ -1,5 +1,7 @@
 # Password Generator Web-Application
 
+<div align="center"><img src="./public/desktop-view.png" width=700 alt="image of password geneator"></div>
+
 Project provided by [FrontEndMentors](https://www.frontendmentor.io/challenges/password-generator-app-Mr8CLycqjh). Desing and main requirement provided thanks to FrontEndMentor.
 
 The requirement of the project is to create a simple password generator where a user can adjust the length and characters of the password, and copy the password to the clipboard as well.
@@ -8,11 +10,11 @@ The requirement of the project is to create a simple password generator where a 
 
 Project was bootstrapped with [Vite](https://vitejs.dev/guide/) using the the React/Typescript template. [Eslint](https://eslint.org/) lint used with react, prettier, and cypress rules.
 
-- [React](https://reactjs.org/docs/getting-started.html) (Front end framework)
+- [React](https://reactjs.org/docs/getting-started.html) (Front end framework/library)
 - [Cypress](https://docs.cypress.io/guides/overview/why-cypress) (End-to-end testing)
-- [React Hook Form](https://react-hook-form.com/) (Manage state of html forms and submitting forms)
-- [CSS Modules](https://github.com/css-modules/css-modules)
-- [generate-password-browser] (Generate random passwords based on options passed in)
+- [React Hook Form](https://react-hook-form.com/) (Manage state of html forms and handle form submission)
+- [CSS Modules](https://github.com/css-modules/css-modules) (Style the application)
+- [generate-password-browser](https://www.npmjs.com/package/generate-password-browser)(Generate random passwords based on options passed in)
 
 ## Developemnt Process
 
@@ -44,8 +46,10 @@ While testing in cypress, I found that changing the range slider would not work 
 
 Eventually I found a package that with cypress, would one to type a "right arrow" on the slider, moving the knob to the right, and firing off the react re-render. As of now, eslint does not pick up the cypress command and thus we are getting a linting error, but the with this I was able to move the range slider properly and have all test pass.
 
-![cypress real events example](/public/change-range.png)
+<div align="center"><img src="./public/change-range.png" width=700 alt="image of cypress real events package"></div>
 
-## How to improve
+## How to improve/What to fix
 
+#### Create own implementation of Password Generator
 
+Create my own implementation of generating a random password, the generate-password-browser package works great, but at some point I would like to attempt my own implementation.
