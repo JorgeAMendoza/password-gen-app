@@ -43,6 +43,7 @@ const PasswordForm = ({ setPassword }: PasswordFormProps) => {
       lowercase: data.useLowercase,
       numbers: data.useNumbers,
       symbols: data.useSymbols,
+      strict: true,
     });
     const score = passwordScore(
       parseInt(data.passwordLength),
