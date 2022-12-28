@@ -59,6 +59,35 @@ const Slider = ({ label, register, sliderCount }: SliderProps) => {
                 );
               }
             },
+            onBlur: (e: SyntheticEvent) => {
+              const rangeElement = e.target as HTMLInputElement;
+              const rangeElementValue = parseInt(rangeElement.value);
+              if (rangeElementValue === 8) {
+                rangeElement.style.setProperty(
+                  '--slider-active-width',
+                  '0.25%'
+                );
+              } else if (rangeElementValue === 14) {
+                rangeElement.style.setProperty('--slider-active-width', '50%');
+              } else if (rangeElementValue === 20)
+                rangeElement.style.setProperty(
+                  '--slider-active-width',
+                  '99.75%'
+                );
+              else if (rangeElementValue < 14) {
+                const activeWidth = (rangeElementValue - 8) * 8.33;
+                rangeElement.style.setProperty(
+                  '--slider-active-width',
+                  `${activeWidth.toFixed(2)}%`
+                );
+              } else {
+                const width = (rangeElementValue - 14) * 8.33 + 50;
+                rangeElement.style.setProperty(
+                  '--slider-active-width',
+                  `${width.toFixed(2)}%`
+                );
+              }
+            },
           })}
           data-cy="passwordLengthSlider"
           className={styles.slider}
