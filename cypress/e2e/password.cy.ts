@@ -1,5 +1,12 @@
 /// <reference types="cypress" />
 
+const hexToRgb = (hex: string) => {
+  const rValue = parseInt(hex.substring(0, 2), 16);
+  const gValue = parseInt(hex.substring(2, 4), 16);
+  const bValue = parseInt(hex.substring(4), 16);
+  return `rgb(${rValue}, ${gValue}, ${bValue})`;
+};
+
 describe('generate password form', () => {
   beforeEach(() => {
     cy.visit('/');
@@ -20,14 +27,14 @@ describe('generate password form', () => {
   });
 
   it('inital password loaded, with a score of weak, form defaults active', () => {
-    cy.get('@password').should('have.length', 8);
+    cy.get('@password').invoke('text').should('have.length', 8);
     cy.get('@passwordStrengthText').should('have.text', 'TOO WEAK!');
 
     cy.get('@passwordLengthText').should('have.text', '8');
-    cy.get('@passwordUpperCheckbox').should('be.checked');
-    cy.get('@passwordLowerCheckbox').should('be.checked');
-    cy.get('@passwordNumberCheckbox').should('not.be.checked');
-    cy.get('@passwordSymbolsCheckbox').should('not.be.checked');
+    cy.get('@passwordUpperCheckbox').find('input').should('be.checked');
+    cy.get('@passwordLowerCheckbox').find('input').should('be.checked');
+    cy.get('@passwordNumbersCheckbox').find('input').should('not.be.checked');
+    cy.get('@passwordSymbolsCheckbox').find('input').should('not.be.checked');
   });
 
   it('no password options selected, no password generated', () => {
@@ -37,14 +44,15 @@ describe('generate password form', () => {
   });
 
   it('adjust password length', () => {
-    cy.get('@passwordLengthSlider')
-      .as('range')
-      .invoke('val', 14)
-      .trigger('change');
+    cy.get('@passwordLengthSlider').focus();
+    cy.get('@passwordLengthSlider').realType(
+      '{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}'
+    );
+    cy.get('@passwordLengthSlider').trigger('change');
     cy.get('@passwordLengthText').should('contain.text', '14');
 
     cy.get('@generatePasswordButton').click();
-    cy.get('@password').should('have.length', 14);
+    cy.get('@password').invoke('text').should('have.length', 14);
   });
 
   it('too weak password strength meter', () => {
@@ -54,30 +62,31 @@ describe('generate password form', () => {
     cy.get('@passwordMeterBarOne').should(
       'have.css',
       'background-color',
-      '#F64A4A'
+      hexToRgb('F64A4A')
     );
     cy.get('@passwordMeterBarTwo').should(
       'have.css',
       'background-color',
-      'transparent'
+      'rgba(0, 0, 0, 0)'
     );
     cy.get('@passwordMeterBarThree').should(
       'have.css',
       'background-color',
-      'transparent'
+      'rgba(0, 0, 0, 0)'
     );
     cy.get('@passwordMeterBarFour').should(
       'have.css',
       'background-color',
-      'transparent'
+      'rgba(0, 0, 0, 0)'
     );
   });
 
   it('weak password strength meter', () => {
-    cy.get('@passwordLengthSlider')
-      .as('range')
-      .invoke('val', 14)
-      .trigger('change');
+    cy.get('@passwordLengthSlider').focus();
+    cy.get('@passwordLengthSlider').realType(
+      '{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}'
+    );
+    cy.get('@passwordLengthSlider').trigger('change');
 
     cy.get('@generatePasswordButton').click();
     cy.get('@passwordStrengthText').should('contain.text', 'WEAK');
@@ -85,30 +94,30 @@ describe('generate password form', () => {
     cy.get('@passwordMeterBarOne').should(
       'have.css',
       'background-color',
-      '#FB7C58'
+      hexToRgb('FB7C58')
     );
     cy.get('@passwordMeterBarTwo').should(
       'have.css',
       'background-color',
-      '#FB7C58'
+      hexToRgb('FB7C58')
     );
     cy.get('@passwordMeterBarThree').should(
       'have.css',
       'background-color',
-      'transparent'
+      'rgba(0, 0, 0, 0)'
     );
     cy.get('@passwordMeterBarFour').should(
       'have.css',
       'background-color',
-      'transparent'
+      'rgba(0, 0, 0, 0)'
     );
   });
 
   it('medium password strength meter', () => {
-    cy.get('@passwordLengthSlider')
-      .as('range')
-      .invoke('val', 14)
-      .trigger('change');
+    cy.get('@passwordLengthSlider').focus();
+    cy.get('@passwordLengthSlider').realType(
+      '{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}'
+    );
     cy.get('@passwordNumbersCheckbox').click();
 
     cy.get('@generatePasswordButton').click();
@@ -117,30 +126,30 @@ describe('generate password form', () => {
     cy.get('@passwordMeterBarOne').should(
       'have.css',
       'background-color',
-      '#F8CD65'
+      hexToRgb('F8CD65')
     );
     cy.get('@passwordMeterBarTwo').should(
       'have.css',
       'background-color',
-      '#F8CD65'
+      hexToRgb('F8CD65')
     );
     cy.get('@passwordMeterBarThree').should(
       'have.css',
       'background-color',
-      '#F8CD65'
+      hexToRgb('F8CD65')
     );
     cy.get('@passwordMeterBarFour').should(
       'have.css',
       'background-color',
-      'transparent'
+      'rgba(0, 0, 0, 0)'
     );
   });
 
   it('strong password strength meter', () => {
-    cy.get('@passwordLengthSlider')
-      .as('range')
-      .invoke('val', 20)
-      .trigger('change');
+    cy.get('@passwordLengthSlider').focus();
+    cy.get('@passwordLengthSlider').realType(
+      '{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}'
+    );
     cy.get('@passwordNumbersCheckbox').click();
     cy.get('@passwordSymbolsCheckbox').click();
 
@@ -150,22 +159,22 @@ describe('generate password form', () => {
     cy.get('@passwordMeterBarOne').should(
       'have.css',
       'background-color',
-      '#A4FFAF'
+      hexToRgb('A4FFAF')
     );
     cy.get('@passwordMeterBarTwo').should(
       'have.css',
       'background-color',
-      '#A4FFAF'
+      hexToRgb('A4FFAF')
     );
     cy.get('@passwordMeterBarThree').should(
       'have.css',
       'background-color',
-      '#A4FFAF'
+      hexToRgb('A4FFAF')
     );
     cy.get('@passwordMeterBarFour').should(
       'have.css',
       'background-color',
-      '#A4FFAF'
+      hexToRgb('A4FFAF')
     );
   });
 

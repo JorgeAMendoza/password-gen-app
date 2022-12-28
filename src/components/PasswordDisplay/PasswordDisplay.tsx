@@ -6,7 +6,8 @@ interface PasswordDisplayProps {
 }
 
 const PasswordDisplay = ({ password }: PasswordDisplayProps) => {
-  const copyPassword = () => navigator.clipboard.writeText(password);
+  const copyPassword = async () =>
+    await navigator.clipboard.writeText(password);
   return (
     <section className={styles.passwordDisplay}>
       <h2 data-cy="password" className={styles.passwordText}>

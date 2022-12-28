@@ -22,10 +22,22 @@ const PasswordStrength = ({ passwordScoreNum }: PasswordStrengthProps) => {
           className={styles.passwordStrengthMeter}
           data-strength={passwordScoreNum}
         >
-          <div className={styles.meterBarOne}></div>
-          <div className={styles.meterBarTwo}></div>
-          <div className={styles.meterBarThree}></div>
-          <div className={styles.meterBarFour}></div>
+          <div
+            className={styles.meterBarOne}
+            data-cy="passwordMeterBarOne"
+          ></div>
+          <div
+            className={styles.meterBarTwo}
+            data-cy="passwordMeterBarTwo"
+          ></div>
+          <div
+            className={styles.meterBarThree}
+            data-cy="passwordMeterBarThree"
+          ></div>
+          <div
+            className={styles.meterBarFour}
+            data-cy="passwordMeterBarFour"
+          ></div>
         </div>
       </div>
     </div>

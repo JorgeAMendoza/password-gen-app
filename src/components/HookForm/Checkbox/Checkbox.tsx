@@ -16,10 +16,10 @@ export const CheckBox = ({
   labelText,
 }: CheckBoxProps) => {
   return (
-    <label className={styles.checkboxContainer}>
+    <label className={styles.checkboxContainer} data-cy={testID}>
       {' '}
       {labelText}
-      <input type="checkbox" {...register(label)} data-cy={testID} />
+      <input type="checkbox" {...register(label)} />
       <span className={styles.checkmark}></span>
     </label>
   );
