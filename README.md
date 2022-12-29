@@ -6,6 +6,8 @@ Project provided by [FrontEndMentors](https://www.frontendmentor.io/challenges/p
 
 The requirement of the project is to create a simple password generator where a user can adjust the length and characters of the password, and copy the password to the clipboard as well.
 
+[Live Demo](https://password-gen-app-three.vercel.app/)
+
 ## Techstack Used
 
 Project was bootstrapped with [Vite](https://vitejs.dev/guide/) using the the React/Typescript template. [Eslint](https://eslint.org/) lint used with react, prettier, and cypress rules.
