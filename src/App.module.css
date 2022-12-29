@@ -1,0 +1,125 @@
+:root {
+  --dark-gray: #24232c;
+  --very-dark-gray: #18171f;
+  --black: #08070b;
+  --grey: #817d92;
+  --white: #e6e5ea;
+  --neon-green: #a4ffaf;
+  --red: #f64a4a;
+  --orange: #fb7c58;
+  --yellow: #f8cd65;
+
+  --app-title: var(--grey);
+  --light-text-color: var(--white);
+  --password-display-background: var(--dark-gray);
+  --password-form-background: var(--dark-gray);
+
+  --gen-button-background: var(--neon-green);
+  --slider-bar: var(--very-dark-gray);
+  --slider-active-bar: var(--neon-green);
+  --slider-handle: var(--white);
+
+  --password-str-bg: var(--very-dark-gray);
+  --password-str-title: var(--grey);
+  --password-str-text: var(--white);
+
+  --password-very-weak-bar: var(--red);
+  --password-weak-bar: var(--orange);
+  --password-medium-bar: var(--yellow);
+  --password-strong-bar: var(--neon-green);
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+  line-height: 1.4;
+}
+body {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.6rem;
+  height: 100%;
+  position: relative;
+  background-image: linear-gradient(
+    to bottom,
+    var(--very-dark-gray),
+    var(--black) 80%
+  );
+  color: var(--light-text-color);
+  -webkit-font-smoothing: antialiased;
+}
+img,
+svg,
+picture,
+video,
+canvas {
+  max-width: 100%;
+  display: block;
+}
+input {
+  font-family: inherit;
+  border: none;
+}
+ul {
+  list-style: none;
+}
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+p,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.formContainer {
+  width: min(91%, 54rem);
+}
+
+.appTitle {
+  color: var(--app-title);
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+
+  margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .appTitle {
+    margin-bottom: 3rem;
+  }
+
+  .app {
+    justify-content: flex-start;
+    padding-top: 13rem;
+  }
+
+  body {
+    background-image: linear-gradient(
+      to bottom,
+      var(--very-dark-gray),
+      var(--black) 90%
+    );
+  }
+}
